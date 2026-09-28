@@ -23,8 +23,9 @@ pub use account::{
 pub use client::SorobanRpcClient;
 pub use client::{fund_account, FundResult};
 pub use deploy::{
-    create_contract, deploy_contract, deploy_contract_with_args, format_json, format_pretty,
-    CreateContractArgs, DeployOutcome, DeployResult, PartialDeployResult,
+    create_contract, deploy_contract, deploy_contract_from_hash, deploy_contract_with_args,
+    format_json, format_pretty, CreateContractArgs, DeployOutcome, DeployResult,
+    PartialDeployResult,
 };
 pub use error::RpcError;
 pub use events::{
@@ -41,13 +42,15 @@ pub use simulate::{
     SimulateResponse, SimulateTransactionRequest,
 };
 pub use storage::{
-    calculate_extension_cost, collect_extend_keys, extend_footprint, get_ttl_info,
-    read_contract_state, read_ledger_entry, ExtendResult, StateReadResult, TtlEntry, TtlInfo,
+    calculate_extension_cost, collect_extend_keys, contract_exists, extend_footprint, get_ttl_info,
+    get_ttl_info_for_keys, read_contract_state, read_ledger_entry, restore_footprint,
+    restore_params_from_simulation, ExtendResult, RestoreResult, StateReadResult, TtlEntry,
+    TtlInfo,
 };
 pub use submission::{
-    get_transaction_status, poll_transaction, send_transaction, submit_and_wait, PollConfig,
-    SendTransactionRequest, SendTransactionResponse, SubmissionResult, TransactionStatus,
-    TransactionStatusResponse,
+    extract_contract_events, get_transaction_status, poll_transaction, send_transaction,
+    submit_and_wait, PollConfig, SendTransactionRequest, SendTransactionResponse, SubmissionResult,
+    TransactionStatus, TransactionStatusResponse,
 };
 pub use transaction::{inspect_transaction, TransactionInspection};
 pub use wasm::get_wasm_metadata;
